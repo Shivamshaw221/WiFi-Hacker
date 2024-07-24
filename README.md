@@ -33,26 +33,18 @@
     ```
 
     This will display:
-    ```text
-    usage: wifi_hacker.py [-h] -i INTERFACE [-H HANDSHAKE] [-w WORDLIST] [-s {monitor,managed}] [-S] [-d] [--bssid BSSID] [--client CLIENT]
+    ``Usage: wifi_hacker.py [-h] -i INTERFACE [-H HANDSHAKE] [-w WORDLIST] [-s {monitor,managed}] [-S] [-d] [--bssid BSSID] [--client CLIENT] [-a]
 
-    WiFi Hacker: WPA Handshake Capture and Crack Tool
-
-    optional arguments:
-      -h, --help            show this help message and exit
-      -i INTERFACE, --interface INTERFACE
-                            Network interface to use for capturing handshake
-      -H HANDSHAKE, --handshake HANDSHAKE
-                            File to save the captured handshake
-      -w WORDLIST, --wordlist WORDLIST
-                            Wordlist file to use for cracking the handshake
-      -s {monitor,managed}, --switch {monitor,managed}
-                            Switch interface mode (monitor/managed)
-      -S, --scan            Scan for available WiFi networks
-      -d, --deauth          Perform deauth attack (requires --bssid and --client)
-      --bssid BSSID         Target BSSID for deauth attack
-      --client CLIENT       Target client MAC address for deauth attack
-    ```
+Options:
+  -i, --interface          Network interface to use for capturing handshake
+  -H, --handshake          File to save the captured handshake
+  -w, --wordlist           Wordlist file to use for cracking the handshake
+  -s, --switch             Switch interface mode (monitor/managed)
+  -S, --scan               Scan for available WiFi networks
+  -d, --deauth             Perform deauth attack (requires --bssid and --client)
+  --bssid BSSID            Target BSSID for deauth attack
+  --client CLIENT          Target client MAC address for deauth attack
+  -a, --auto               Automatic mode for capturing handshake
 
 2. **Switch Interface to Monitor Mode**:
     ```sh
