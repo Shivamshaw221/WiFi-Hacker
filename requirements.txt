@@ -1,4 +1,3 @@
 scapy
 pynput
-Python 3.x
 hashcat
