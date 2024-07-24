@@ -1,39 +1,24 @@
 # WiFi Hacker
- 
 
+WiFi Hacker is a tool for performing various WiFi network attacks including network scanning, deauthentication attacks, and WPA2 handshake capturing and cracking.
 
 ## Features
-
-- Switch network interface mode between monitor and managed.
-- Scan for available WiFi networks.
-- Capture WPA handshakes.
-- Perform deauthentication attacks.
-- Crack WPA handshakes using a wordlist.
+- Network scanning
+- Deauthentication attack
+- WPA2 handshake capturing
+- WPA2 handshake cracking
 
 ## Requirements
-
 - Python 3.x
-- scapy
-- hashcat
+- Scapy
+- argparse
+- subprocess
 
 ## Installation
-
-1. Install the required Python packages:
-    ```sh
-    pip install -r requirements.txt
-    ```
-
-2. Ensure you have `hashcat` installed on your system.
-
-## Usage
-
-1. **Display Help**:
-    ```sh
-    sudo python wifi_hacker.py -h
-    ```
-
-    This will display:
-    ``Usage: wifi_hacker.py [-h] -i INTERFACE [-H HANDSHAKE] [-w WORDLIST] [-s {monitor,managed}] [-S] [-d] [--bssid BSSID] [--client CLIENT] [-a]
+Install the required packages:
+```sh
+pip install -r requirements.txt
+Usage: wifi_hacker.py [-h] -i INTERFACE [-H HANDSHAKE] [-w WORDLIST] [-s {monitor,managed}] [-S] [-d] [--bssid BSSID] [--client CLIENT] [-a]
 
 Options:
   -i, --interface          Network interface to use for capturing handshake
@@ -46,33 +31,17 @@ Options:
   --client CLIENT          Target client MAC address for deauth attack
   -a, --auto               Automatic mode for capturing handshake
 
-2. **Switch Interface to Monitor Mode**:
-    ```sh
-    sudo python wifi_hacker.py -i <interface> -s monitor
-    ```
+# Switch interface to monitor mode
+python wifi_hacker.py -i wlan0 -s monitor
 
-3. **Switch Interface to Managed Mode**:
-    ```sh
-    sudo python wifi_hacker.py -i <interface> -s managed
-    ```
+# Scan for networks
+python wifi_hacker.py -i wlan0 -S
 
-4. **Scan for Available WiFi Networks**:
-    ```sh
-    sudo python wifi_hacker.py -i <interface> -S
-    ```
+# Automatic mode for capturing handshake
+python wifi_hacker.py -i wlan0 -a
 
-5. **Perform Deauthentication Attack**:
-    ```sh
-    sudo python wifi_hacker.py -i <interface> -d --bssid <target_bssid> --client <target_client_mac>
-    ```
+# Perform deauth attack manually
+python wifi_hacker.py -i wlan0 -d --bssid 00:11:22:33:44:55 --client AA:BB:CC:DD:EE:FF
 
-6. **Run the Script to Capture and Crack WPA Handshake**:
-    ```sh
-    sudo python wifi_hacker.py -i <interface> -H handshake.cap -w /path/to/wordlist.txt
-    ```
-
-## Disclaimer
-
-This tool is for educational purposes only. Unauthorized use of this tool to capture or crack WPA handshakes without explicit permission from the network owner is illegal. The author is not responsible for any misuse or damage caused by this tool.
-
-
+# Crack WPA2 handshake
+python wifi_hacker.py -i wlan0 -H handshake/00-11-22-33-44-55.cap -w wordlist.txt
