@@ -13,7 +13,7 @@ WiFi Hacker is a Python script to automate the process of scanning WiFi networks
 
 1. Clone the repository
     ```sh
-    git clone https://github.com/yourusername/wifi_hacker.git
+    git clone https://github.com/Shivamshaw221/wifi-hacking.git
     cd wifi_hacker
     ```
 
