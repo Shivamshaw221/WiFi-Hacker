@@ -92,6 +92,9 @@ sudo python wifi_hacker.py -i wlan0 -d --bssid 00:11:22:33:44:55 --client AA:BB:
 
 # Crack WPA2 handshake
 sudo python wifi_hacker.py -i wlan0 -H handshake/00-11-22-33-44-55.cap -w wordlist.txt
+
+python update_script.py
+
 ```
 
 ## License
