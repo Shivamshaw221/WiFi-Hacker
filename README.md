@@ -18,6 +18,10 @@ WiFi Hacker is a tool for performing various WiFi network attacks including netw
 Install the required packages:
 ```sh
 pip install -r requirements.txt
+```
+
+## Usage
+```
 Usage: wifi_hacker.py [-h] -i INTERFACE [-H HANDSHAKE] [-w WORDLIST] [-s {monitor,managed}] [-S] [-d] [--bssid BSSID] [--client CLIENT] [-a]
 
 Options:
@@ -30,7 +34,10 @@ Options:
   --bssid BSSID            Target BSSID for deauth attack
   --client CLIENT          Target client MAC address for deauth attack
   -a, --auto               Automatic mode for capturing handshake
+```
 
+## Example Usage
+```
 # Switch interface to monitor mode
 python wifi_hacker.py -i wlan0 -s monitor
 
@@ -45,3 +52,7 @@ python wifi_hacker.py -i wlan0 -d --bssid 00:11:22:33:44:55 --client AA:BB:CC:DD
 
 # Crack WPA2 handshake
 python wifi_hacker.py -i wlan0 -H handshake/00-11-22-33-44-55.cap -w wordlist.txt
+```
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
